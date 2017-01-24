@@ -8,20 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		9E3F96EC1E36D51600854A39 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3F96EB1E36D51600854A39 /* AppDelegate.swift */; };
-		9E3F96EE1E36D51600854A39 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3F96ED1E36D51600854A39 /* ViewController.swift */; };
 		9E3F96F11E36D51600854A39 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E3F96EF1E36D51600854A39 /* Main.storyboard */; };
 		9E3F96F31E36D51600854A39 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E3F96F21E36D51600854A39 /* Assets.xcassets */; };
 		9E3F96F61E36D51600854A39 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E3F96F41E36D51600854A39 /* LaunchScreen.storyboard */; };
+		9E3F96FE1E36D90E00854A39 /* MoviesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3F96FD1E36D90E00854A39 /* MoviesViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		9E3F96E81E36D51600854A39 /* TopMovies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TopMovies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E3F96EB1E36D51600854A39 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		9E3F96ED1E36D51600854A39 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		9E3F96F01E36D51600854A39 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9E3F96F21E36D51600854A39 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9E3F96F51E36D51600854A39 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9E3F96F71E36D51600854A39 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9E3F96FD1E36D90E00854A39 /* MoviesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoviesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,11 +55,11 @@
 			isa = PBXGroup;
 			children = (
 				9E3F96EB1E36D51600854A39 /* AppDelegate.swift */,
-				9E3F96ED1E36D51600854A39 /* ViewController.swift */,
 				9E3F96EF1E36D51600854A39 /* Main.storyboard */,
 				9E3F96F21E36D51600854A39 /* Assets.xcassets */,
 				9E3F96F41E36D51600854A39 /* LaunchScreen.storyboard */,
 				9E3F96F71E36D51600854A39 /* Info.plist */,
+				9E3F96FD1E36D90E00854A39 /* MoviesViewController.swift */,
 			);
 			path = TopMovies;
 			sourceTree = "<group>";
@@ -96,6 +96,7 @@
 				TargetAttributes = {
 					9E3F96E71E36D51600854A39 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = GX7AQ33259;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -136,7 +137,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9E3F96EE1E36D51600854A39 /* ViewController.swift in Sources */,
+				9E3F96FE1E36D90E00854A39 /* MoviesViewController.swift in Sources */,
 				9E3F96EC1E36D51600854A39 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -260,10 +261,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = GX7AQ33259;
 				INFOPLIST_FILE = TopMovies/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hungdo.TopMovies;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -272,10 +275,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = GX7AQ33259;
 				INFOPLIST_FILE = TopMovies/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hungdo.TopMovies;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
