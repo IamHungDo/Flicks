@@ -30,18 +30,22 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="119"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rHv-2c-1cK" id="tQm-Lf-ylG">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="118"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="118.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R54-FN-Svz">
-                                                    <rect key="frame" x="8" y="0.0" width="152" height="31"/>
+                                                    <rect key="frame" x="92" y="0.0" width="152" height="31"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LM7-eR-OSB">
+                                                    <rect key="frame" x="0.0" y="-3" width="84" height="124"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Overview" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="21G-P2-YnE">
-                                                    <rect key="frame" x="8" y="52" width="302" height="58"/>
+                                                    <rect key="frame" x="92" y="39" width="302" height="58"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -51,6 +55,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="overviewLabel" destination="21G-P2-YnE" id="zFr-gx-v3B"/>
+                                            <outlet property="posterView" destination="LM7-eR-OSB" id="7Bb-U4-WjK"/>
                                             <outlet property="titleLabel" destination="R54-FN-Svz" id="4M3-aW-aBK"/>
                                         </connections>
                                     </tableViewCell>
