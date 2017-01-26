@@ -8,6 +8,7 @@
 
 import UIKit
 import AFNetworking
+import MBProgressHUD
 
 
 class MoviesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
@@ -16,17 +17,26 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
     
     var movies: [NSDictionary]?
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refreshControlAction(_:)), forControlEvents: UIControlEvents.ValueChanged)
+        tableView.insertSubview(refreshControl, at: 0)
 
+
+
+        
         
         let apiKey = "a07e22bc18f5cb106bfe4cc1f83ad8ed"
         let url = URL(string: "https://api.themoviedb.org/3/movie/now_playing?api_key=\(apiKey)")!
         let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
         let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
         
+        
+    MBProgressHUD.showAdded(to: self.view, animated: true)
         let task: URLSessionDataTask = session.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
             if let data = data {
                 if let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as? NSDictionary {
@@ -34,9 +44,12 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
                     
                     self.movies = dataDictionary["results"] as! [NSDictionary]
                     self.tableView.reloadData()
+                    MBProgressHUD.hide(for: self.view, animated: true)
+                    
                 }
             }
         }
+       
         task.resume()
     }
 
@@ -44,6 +57,8 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let movies = movies {
@@ -53,6 +68,10 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         }
     }
     
+
+    
+    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as! MovieCell
         
@@ -70,6 +89,9 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         print("Row \(indexPath.row)")
         return cell
     }
+    
+    
+    
 
     /*
     // MARK: - Navigation
