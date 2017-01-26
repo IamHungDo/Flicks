@@ -15,7 +15,10 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
 
     @IBOutlet weak var tableView: UITableView!
     
+<<<<<<< HEAD
     
+=======
+>>>>>>> parent of d08933d... Added fade to the images
     var movies: [NSDictionary]?
 
     
@@ -74,6 +77,8 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
 
+    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as! MovieCell
         
@@ -82,49 +87,36 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         let overview = movie["overview"] as! String
         let baseURL = "https://image.tmdb.org/t/p/w500/"
         let posterPath = movie["poster_path"] as! String
-        let imageURL = (string:baseURL + posterPath)
-        let imageRequest = NSURLRequest(url: NSURL(string:imageURL)! as URL)
+        let imageURL = NSURL(string: baseURL + posterPath)
         
         cell.titleLabel.text = title
         cell.overviewLabel.text = overview
-        
-        
-        cell.posterView.setImageWith(
-            imageRequest as URLRequest,
-            placeholderImage: nil,
-            success: { (imageRequest, imageResponse, image) -> Void in
-                
-                // imageResponse will be nil if the image is cached
-                if imageResponse != nil {
-                    print("Image was NOT cached, fade in image")
-                    cell.posterView.alpha = 0.0
-                    cell.posterView.image = image
-                    UIView.animate(withDuration: 1.5, animations: { () -> Void in
-                        cell.posterView.alpha = 1.0
-                    })
-                } else {
-                    print("Image was cached so just update the image")
-                    cell.posterView.image = image
-                }
-        },
-            failure: { (imageRequest, imageResponse, error) -> Void in
-                // do something for the failure condition
-        })
+        cell.posterView.setImageWith(imageURL as! URL)
+
         print("Row \(indexPath.row)")
         return cell
     }
     
     func refreshControlAction(refreshControl: UIRefreshControl) {
+        
 
+            
+            // ... Use the new data to update the data source ...
+            
+            // Reload the tableView now that there is new data
             tableView.reloadData()
 
             // Tell the refreshControl to stop spinning
             refreshControl.endRefreshing()
         }
+<<<<<<< HEAD
     
     
     }
 
+=======
+    }
+>>>>>>> parent of d08933d... Added fade to the images
 
 
     /*
