@@ -12,11 +12,9 @@ import MBProgressHUD
 
 
 class MoviesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+
     @IBOutlet weak var tableView: UITableView!
     
-    let data = ["Moana, Passengers"]
-    
-    var filteredData: [String]!
     
     var movies: [NSDictionary]?
 
@@ -26,7 +24,6 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
-        filteredData = data
         
         // Initialize a UIRefreshControl
         let refreshControl = UIRefreshControl()
@@ -124,20 +121,6 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
             // Tell the refreshControl to stop spinning
             refreshControl.endRefreshing()
         }
-    
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        // When there is no text, filteredData is the same as the original data
-        // When user has entered text into the search box
-        // Use the filter method to iterate over all items in the data array
-        // For each item, return true if the item should be included and false if the
-        // item should NOT be included
-        filteredData = searchText.isEmpty ? data : data.filter({(dataString: String) -> Bool in
-            // If dataItem matches the searchText, return true to include it
-            return dataString.range(of: searchText, options: .caseInsensitive) != nil
-        })
-        
-        tableView.reloadData()
-    }
     
     
     }
