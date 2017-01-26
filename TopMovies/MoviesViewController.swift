@@ -12,8 +12,6 @@ import MBProgressHUD
 
 
 class MoviesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-
-    @IBOutlet weak var searchBar: UITableView!
     @IBOutlet weak var tableView: UITableView!
     
     let data = ["Moana, Passengers"]
@@ -28,7 +26,6 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
-        searchBar.delegate = self
         filteredData = data
         
         // Initialize a UIRefreshControl
