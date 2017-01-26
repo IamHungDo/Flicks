@@ -16,19 +16,19 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
     @IBOutlet weak var tableView: UITableView!
     
     var movies: [NSDictionary]?
+
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
-        let refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action: #selector(refreshControlAction(_:)), forControlEvents: UIControlEvents.ValueChanged)
-        tableView.insertSubview(refreshControl, at: 0)
-
-
-
         
+        // Initialize a UIRefreshControl
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(MoviesViewController.refreshControlAction(refreshControl:)), for: UIControlEvents.valueChanged)
+        // add refresh control to table view
+        tableView.insertSubview(refreshControl, at: 0)
         
         let apiKey = "a07e22bc18f5cb106bfe4cc1f83ad8ed"
         let url = URL(string: "https://api.themoviedb.org/3/movie/now_playing?api_key=\(apiKey)")!
@@ -42,17 +42,21 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
                 if let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as? NSDictionary {
                     print(dataDictionary)
                     
-                    self.movies = dataDictionary["results"] as! [NSDictionary]
+                    self.movies = (dataDictionary["results"] as! [NSDictionary])
                     self.tableView.reloadData()
                     MBProgressHUD.hide(for: self.view, animated: true)
                     
                 }
             }
+            
         }
-       
         task.resume()
+        
     }
 
+    
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -69,7 +73,6 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
 
-    
     
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -90,8 +93,20 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         return cell
     }
     
-    
-    
+    func refreshControlAction(refreshControl: UIRefreshControl) {
+        
+
+            
+            // ... Use the new data to update the data source ...
+            
+            // Reload the tableView now that there is new data
+            tableView.reloadData()
+
+            // Tell the refreshControl to stop spinning
+            refreshControl.endRefreshing()
+        }
+    }
+
 
     /*
     // MARK: - Navigation
@@ -103,4 +118,4 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
     }
     */
 
-}
+
