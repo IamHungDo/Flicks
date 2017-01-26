@@ -13,7 +13,12 @@ import MBProgressHUD
 
 class MoviesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
+    @IBOutlet weak var searchBar: UITableView!
     @IBOutlet weak var tableView: UITableView!
+    
+    let data = ["Moana, Passengers"]
+    
+    var filteredData: [String]!
     
     var movies: [NSDictionary]?
 
@@ -23,6 +28,8 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
+        searchBar.delegate = self
+        filteredData = data
         
         // Initialize a UIRefreshControl
         let refreshControl = UIRefreshControl()
@@ -73,8 +80,6 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
 
-    
-
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as! MovieCell
         
@@ -83,29 +88,63 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         let overview = movie["overview"] as! String
         let baseURL = "https://image.tmdb.org/t/p/w500/"
         let posterPath = movie["poster_path"] as! String
-        let imageURL = NSURL(string: baseURL + posterPath)
+        let imageURL = (string:baseURL + posterPath)
+        let imageRequest = NSURLRequest(url: NSURL(string:imageURL)! as URL)
         
         cell.titleLabel.text = title
         cell.overviewLabel.text = overview
-        cell.posterView.setImageWith(imageURL as! URL)
-
+        
+        
+        cell.posterView.setImageWith(
+            imageRequest as URLRequest,
+            placeholderImage: nil,
+            success: { (imageRequest, imageResponse, image) -> Void in
+                
+                // imageResponse will be nil if the image is cached
+                if imageResponse != nil {
+                    print("Image was NOT cached, fade in image")
+                    cell.posterView.alpha = 0.0
+                    cell.posterView.image = image
+                    UIView.animate(withDuration: 1.5, animations: { () -> Void in
+                        cell.posterView.alpha = 1.0
+                    })
+                } else {
+                    print("Image was cached so just update the image")
+                    cell.posterView.image = image
+                }
+        },
+            failure: { (imageRequest, imageResponse, error) -> Void in
+                // do something for the failure condition
+        })
         print("Row \(indexPath.row)")
         return cell
     }
     
     func refreshControlAction(refreshControl: UIRefreshControl) {
-        
 
-            
-            // ... Use the new data to update the data source ...
-            
-            // Reload the tableView now that there is new data
             tableView.reloadData()
 
             // Tell the refreshControl to stop spinning
             refreshControl.endRefreshing()
         }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        // When there is no text, filteredData is the same as the original data
+        // When user has entered text into the search box
+        // Use the filter method to iterate over all items in the data array
+        // For each item, return true if the item should be included and false if the
+        // item should NOT be included
+        filteredData = searchText.isEmpty ? data : data.filter({(dataString: String) -> Bool in
+            // If dataItem matches the searchText, return true to include it
+            return dataString.range(of: searchText, options: .caseInsensitive) != nil
+        })
+        
+        tableView.reloadData()
     }
+    
+    
+    }
+
 
 
     /*
