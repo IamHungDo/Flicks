@@ -11,13 +11,15 @@ import AFNetworking
 import MBProgressHUD
 
 
-class MoviesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class MoviesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var searchBar: UISearchBar!
     
     
     var movies: [NSDictionary]?
+    var filteredData: [NSDictionary]!
 
     
     
@@ -25,7 +27,7 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
-
+        searchBar.delegate = self
         
         // Initialize a UIRefreshControl
         let refreshControl = UIRefreshControl()
@@ -46,6 +48,7 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
                     print(dataDictionary)
                     
                     self.movies = (dataDictionary["results"] as! [NSDictionary])
+                    self.filteredData = self.movies
                     self.tableView.reloadData()
                     MBProgressHUD.hide(for: self.view, animated: true)
                     
@@ -67,25 +70,35 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
     
 
     
+
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        filteredData = searchText.isEmpty ? movies : movies?.filter({(movie: NSDictionary) -> Bool in
+            return (movie["title"] as! String).range(of: searchText, options: .caseInsensitive) != nil
+        })
+        tableView.reloadData()
+    }
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let movies = movies {
-            return movies.count
+        if movies != nil {
+            return filteredData.count
         } else {
             return 0
         }
     }
-    
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as! MovieCell
         
-        let movie = movies![indexPath.row]
+        let movie = filteredData[indexPath.row]
         let title = movie["title"] as! String
         let overview = movie["overview"] as! String
         let baseURL = "https://image.tmdb.org/t/p/w500/"
         let posterPath = movie["poster_path"] as! String
         let imageURL = (string:baseURL + posterPath)
         let imageRequest = NSURLRequest(url: NSURL(string:imageURL)! as URL)
+        
         
         cell.titleLabel.text = title
         cell.overviewLabel.text = overview
