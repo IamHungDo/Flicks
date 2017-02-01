@@ -18,7 +18,7 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
     @IBOutlet weak var searchBar: UISearchBar!
     
     
-    var movies: [NSDictionary]?
+    var movies: [NSDictionary]!
     var filteredData: [NSDictionary]!
 
     
@@ -60,18 +60,11 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         
     }
 
-    
-    
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+
     }
-    
-
-    
-
-    
+ 
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         filteredData = searchText.isEmpty ? movies : movies?.filter({(movie: NSDictionary) -> Bool in
             return (movie["title"] as! String).range(of: searchText, options: .caseInsensitive) != nil
@@ -136,24 +129,18 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
             // Tell the refreshControl to stop spinning
             refreshControl.endRefreshing()
         }
-
     
-    
-
-    
-    
-    }
-
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        let cell = sender as! UITableViewCell
+        let indexPath = tableView.indexPath(for: cell)
+        let movie = movies![indexPath!.row]
+        
+        let detailViewController = segue.destination as!DetailViewController
+        detailViewController.movie = movie
     }
-    */
+
+    
+    }
+
 
 
