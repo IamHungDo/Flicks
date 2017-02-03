@@ -87,16 +87,14 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         let movie = filteredData[indexPath.row]
         let title = movie["title"] as! String
         let overview = movie["overview"] as! String
-        let baseURL = "https://image.tmdb.org/t/p/w500/"
-        let posterPath = movie["poster_path"] as! String
-        let imageURL = (string:baseURL + posterPath)
-        let imageRequest = NSURLRequest(url: NSURL(string:imageURL)! as URL)
-        
-        
         cell.titleLabel.text = title
         cell.overviewLabel.text = overview
         
         
+        let baseURL = "https://image.tmdb.org/t/p/w500/"
+        if let posterPath = movie["poster_path"] as? String {
+        let imageURL = (string:baseURL + posterPath)
+        let imageRequest = NSURLRequest(url: NSURL(string:imageURL)! as URL)
         cell.posterView.setImageWith(
             imageRequest as URLRequest,
             placeholderImage: nil,
@@ -119,6 +117,7 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
                 // do something for the failure condition
         })
         print("Row \(indexPath.row)")
+        }
         return cell
     }
     
