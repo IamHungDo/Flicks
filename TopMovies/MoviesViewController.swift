@@ -89,6 +89,11 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         let overview = movie["overview"] as! String
         cell.titleLabel.text = title
         cell.overviewLabel.text = overview
+        cell.selectionStyle = .none
+        
+        let backgroundView = UIView()
+        backgroundView.backgroundColor = UIColor.red
+        cell.selectedBackgroundView = backgroundView
         
         
         let baseURL = "https://image.tmdb.org/t/p/w500/"
