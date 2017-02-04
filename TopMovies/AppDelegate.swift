@@ -41,9 +41,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         
+        let upcomingNavController = storyboard.instantiateViewController(withIdentifier: "MoviesNavController") as! UINavigationController
+        let upcomingViewController = upcomingNavController.topViewController as! MoviesViewController
+        upcomingViewController.endpoint = "upcoming"
+        upcomingNavController.tabBarItem.title = "Top Rated"
+        upcomingNavController.tabBarItem.image = UIImage(named: "upcoming")
+        upcomingNavController.navigationBar.barTintColor = UIColor.black
+        upcomingNavController.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+        
+        
         
         let tabBarController = UITabBarController()
-        tabBarController.viewControllers = [nowPlayingNavController, topRatedNavController]
+        tabBarController.viewControllers = [nowPlayingNavController, topRatedNavController, upcomingNavController]
         tabBarController.tabBar.barTintColor = UIColor.black
         
         window?.rootViewController = tabBarController
