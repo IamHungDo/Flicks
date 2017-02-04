@@ -26,7 +26,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         nowPlayingViewController.endpoint = "now_playing"
         nowPlayingNavController.tabBarItem.title = "Now Playing"
         nowPlayingNavController.tabBarItem.image = UIImage(named: "nowplaying1")
-        
+        nowPlayingNavController.navigationBar.barTintColor = UIColor.black
+        nowPlayingNavController.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
         
         
         
@@ -35,12 +36,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         topRatedViewController.endpoint = "top_rated"
         topRatedNavController.tabBarItem.title = "Top Rated"
         topRatedNavController.tabBarItem.image = UIImage(named: "toprated")
+        topRatedNavController.navigationBar.barTintColor = UIColor.black
+        topRatedNavController.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
         
         
         
         
         let tabBarController = UITabBarController()
         tabBarController.viewControllers = [nowPlayingNavController, topRatedNavController]
+        tabBarController.tabBar.barTintColor = UIColor.black
         
         window?.rootViewController = tabBarController
         window?.makeKeyAndVisible()
