@@ -21,7 +21,7 @@
 		0170FC4AAC2C94A2B6E3E855 /* Pods-TopMovies.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TopMovies.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TopMovies/Pods-TopMovies.debug.xcconfig"; sourceTree = "<group>"; };
 		10C3D7E09838CE5B21241B43 /* Pods-TopMovies.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TopMovies.release.xcconfig"; path = "Pods/Target Support Files/Pods-TopMovies/Pods-TopMovies.release.xcconfig"; sourceTree = "<group>"; };
 		9E22896D1E414DD600D07A74 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
-		9E3F96E81E36D51600854A39 /* TopMovies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TopMovies.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9E3F96E81E36D51600854A39 /* Flicks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flicks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E3F96EB1E36D51600854A39 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9E3F96F01E36D51600854A39 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9E3F96F21E36D51600854A39 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -64,7 +64,7 @@
 		9E3F96DF1E36D51600854A39 = {
 			isa = PBXGroup;
 			children = (
-				9E3F96EA1E36D51600854A39 /* TopMovies */,
+				9E3F96EA1E36D51600854A39 /* Flicks */,
 				9E3F96E91E36D51600854A39 /* Products */,
 				0A079F99C4BFBEFF8C17CAE1 /* Pods */,
 				6CC918B82A543738F17E4528 /* Frameworks */,
@@ -74,12 +74,12 @@
 		9E3F96E91E36D51600854A39 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9E3F96E81E36D51600854A39 /* TopMovies.app */,
+				9E3F96E81E36D51600854A39 /* Flicks.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		9E3F96EA1E36D51600854A39 /* TopMovies */ = {
+		9E3F96EA1E36D51600854A39 /* Flicks */ = {
 			isa = PBXGroup;
 			children = (
 				9E3F97021E36F4E700854A39 /* View Controllers */,
@@ -90,6 +90,7 @@
 				9E3F96F41E36D51600854A39 /* LaunchScreen.storyboard */,
 				9E3F96F71E36D51600854A39 /* Info.plist */,
 			);
+			name = Flicks;
 			path = TopMovies;
 			sourceTree = "<group>";
 		};
@@ -113,9 +114,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		9E3F96E71E36D51600854A39 /* TopMovies */ = {
+		9E3F96E71E36D51600854A39 /* Flicks */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9E3F96FA1E36D51600854A39 /* Build configuration list for PBXNativeTarget "TopMovies" */;
+			buildConfigurationList = 9E3F96FA1E36D51600854A39 /* Build configuration list for PBXNativeTarget "Flicks" */;
 			buildPhases = (
 				A8ADC7A98ABBE870AD30BC1C /* [CP] Check Pods Manifest.lock */,
 				9E3F96E41E36D51600854A39 /* Sources */,
@@ -128,9 +129,9 @@
 			);
 			dependencies = (
 			);
-			name = TopMovies;
+			name = Flicks;
 			productName = TopMovies;
-			productReference = 9E3F96E81E36D51600854A39 /* TopMovies.app */;
+			productReference = 9E3F96E81E36D51600854A39 /* Flicks.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -150,7 +151,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 9E3F96E31E36D51600854A39 /* Build configuration list for PBXProject "TopMovies" */;
+			buildConfigurationList = 9E3F96E31E36D51600854A39 /* Build configuration list for PBXProject "Flicks" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -163,7 +164,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				9E3F96E71E36D51600854A39 /* TopMovies */,
+				9E3F96E71E36D51600854A39 /* Flicks */,
 			);
 		};
 /* End PBXProject section */
@@ -364,7 +365,7 @@
 				DEVELOPMENT_TEAM = GX7AQ33259;
 				INFOPLIST_FILE = TopMovies/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.hungdo.TopMovies;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hungdo.Flicks;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 3.0;
@@ -379,7 +380,7 @@
 				DEVELOPMENT_TEAM = GX7AQ33259;
 				INFOPLIST_FILE = TopMovies/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.hungdo.TopMovies;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hungdo.Flicks;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 3.0;
@@ -389,7 +390,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		9E3F96E31E36D51600854A39 /* Build configuration list for PBXProject "TopMovies" */ = {
+		9E3F96E31E36D51600854A39 /* Build configuration list for PBXProject "Flicks" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9E3F96F81E36D51600854A39 /* Debug */,
@@ -398,7 +399,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9E3F96FA1E36D51600854A39 /* Build configuration list for PBXNativeTarget "TopMovies" */ = {
+		9E3F96FA1E36D51600854A39 /* Build configuration list for PBXNativeTarget "Flicks" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9E3F96FB1E36D51600854A39 /* Debug */,

@@ -1,6 +1,6 @@
 //
 //  MoviesController.swift
-//  TopMovies
+//  Flicks
 //
 //  Created by Hung Do on 1/23/17.
 //  Copyright © 2017 Hung Do. All rights reserved.
@@ -105,7 +105,6 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
             placeholderImage: nil,
             success: { (imageRequest, imageResponse, image) -> Void in
                 
-                // imageResponse will be nil if the image is cached
                 if imageResponse != nil {
                     print("Image was NOT cached, fade in image")
                     cell.posterView.alpha = 0.0

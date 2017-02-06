@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "9E3F96E71E36D51600854A39"
-            BuildableName = "TopMovies.app"
-            BlueprintName = "TopMovies"
-            ReferencedContainer = "container:TopMovies.xcodeproj">
+            BuildableName = "Flicks.app"
+            BlueprintName = "Flicks"
+            ReferencedContainer = "container:Flicks.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -56,9 +56,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "9E3F96E71E36D51600854A39"
-            BuildableName = "TopMovies.app"
-            BlueprintName = "TopMovies"
-            ReferencedContainer = "container:TopMovies.xcodeproj">
+            BuildableName = "Flicks.app"
+            BlueprintName = "Flicks"
+            ReferencedContainer = "container:Flicks.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>

@@ -1,6 +1,6 @@
 //
 //  DetailViewController.swift
-//  TopMovies
+//  Flicks
 //
 //  Created by Hung Do on 1/31/17.
 //  Copyright © 2017 Hung Do. All rights reserved.
