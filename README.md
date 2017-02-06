@@ -1,6 +1,6 @@
-# Project 1 - TopMovies
+# Project 1 - Flicks
 
-TopMovies is a movies app using the [The Movie Database API](http://docs.themoviedb.apiary.io/#).
+Flicks is a movies app using the [The Movie Database API](http://docs.themoviedb.apiary.io/#).
 
 Time spent: **15** hours spent in total
 
@@ -43,9 +43,9 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 Describe any challenges encountered while building the app.
 -Search bar required switch from String to NSDictionary
 
-# Project 2 - *TopMovies*
+# Project 2 - *Flicks*
 
-**TopMovies** is a movies app displaying box office and top rental DVDs using [The Movie Database API](http://docs.themoviedb.apiary.io/#).
+**Flicks** is a movies app displaying box office and top rental DVDs using [The Movie Database API](http://docs.themoviedb.apiary.io/#).
 
 Time spent: **10** hours spent in total
 
