@@ -44,7 +44,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let upcomingNavController = storyboard.instantiateViewController(withIdentifier: "MoviesNavController") as! UINavigationController
         let upcomingViewController = upcomingNavController.topViewController as! MoviesViewController
         upcomingViewController.endpoint = "upcoming"
-        upcomingNavController.tabBarItem.title = "Top Rated"
+        upcomingNavController.tabBarItem.title = "Upcoming"
         upcomingNavController.tabBarItem.image = UIImage(named: "upcoming")
         upcomingNavController.navigationBar.barTintColor = UIColor.black
         upcomingNavController.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
